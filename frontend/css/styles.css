@@ -419,3 +419,172 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent);
 }
+
+/* ============================================================
+   Multi-Route Comparison Cards
+   ============================================================ */
+
+/* Scrollable wrapper inside the glass panel */
+#distanceDisplay {
+    overflow-y: auto;
+    max-height: 72vh;
+}
+
+/* Recommendation banner at top of results */
+.rec-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: rgba(0, 229, 255, 0.07);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 12px;
+    padding: 0.875rem 1rem;
+    margin-bottom: 1rem;
+}
+.rec-star { font-size: 1.1rem; flex-shrink: 0; line-height: 1.4; }
+.rec-label {
+    font-size: 0.55rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    margin-bottom: 2px;
+}
+.rec-name  { font-size: 0.85rem; font-weight: 800; color: #fff; }
+.rec-reason { font-size: 0.7rem; color: var(--text-secondary); margin-top: 2px; }
+
+/* Cards list */
+.route-card-list { display: flex; flex-direction: column; gap: 0.65rem; }
+
+/* Individual card */
+.route-option-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 0.875rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    overflow: hidden; /* never let children escape */
+}
+.route-option-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+.route-option-card.card-selected {
+    border-color: rgba(0, 229, 255, 0.45);
+    box-shadow: 0 0 0 1px rgba(0, 229, 255, 0.25);
+    background: rgba(0, 229, 255, 0.04);
+}
+
+/* Row 1 — icon + name + optional "Recommended" pill */
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+.card-title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+}
+.card-icon  { font-size: 1rem; flex-shrink: 0; }
+.card-name  { font-size: 0.85rem; font-weight: 800; color: #fff; white-space: nowrap; }
+
+/* Recommended pill */
+.badge-rec {
+    display: inline-block;
+    font-size: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    background: rgba(0, 229, 255, 0.12);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 99px;
+    padding: 0.25rem 0.6rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Row 2 — crowd badge + short description */
+.card-crowd-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+.badge-crowd {
+    display: inline-block;
+    font-size: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-radius: 99px;
+    padding: 0.2rem 0.65rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+.crowd-low    { background: rgba(16,185,129,0.12);  color: #10b981; border: 1px solid rgba(16,185,129,0.25);  }
+.crowd-medium { background: rgba(245,158,11,0.12);  color: #f59e0b; border: 1px solid rgba(245,158,11,0.25);  }
+.crowd-high   { background: rgba(239,68,68,0.12);   color: #ef4444; border: 1px solid rgba(239,68,68,0.25);   }
+
+.card-desc {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Row 3 — metrics grid */
+.card-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+.metric-label {
+    font-size: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+}
+.metric-value {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+}
+.metric-unit { font-size: 0.6rem; font-weight: 400; color: var(--text-secondary); }
+
+/* Row 4 — path nodes */
+.card-path {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    align-items: center;
+}
+.path-node {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    padding: 0.15rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: #67e8f9;
+    white-space: nowrap;
+}
+.path-sep {
+    font-size: 0.45rem;
+    color: rgba(255,255,255,0.25);
+    line-height: 1;
+}
+
+/* State placeholder */
+.state-wrapper { padding: 0.5rem 0; }

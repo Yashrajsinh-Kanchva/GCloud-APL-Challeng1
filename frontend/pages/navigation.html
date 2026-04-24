@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation | StadiumFlow</title>
+    <meta name="description" content="Congestion-aware pathfinding with multi-route comparison for StadiumFlow stadium navigation.">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,7 +20,7 @@
         <header class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8">
             <div>
                 <h1 class="text-5xl md:text-6xl font-black mb-3 tracking-tighter">Spatial <span class="text-accent">Guidance</span></h1>
-                <p class="text-muted font-bold uppercase tracking-[0.3em] text-[0.7rem] opacity-80">Congestion-Aware Pathfinding & Node Routing</p>
+                <p class="text-muted font-bold uppercase tracking-[0.3em] text-[0.7rem] opacity-80">Congestion-Aware Pathfinding &amp; Multi-Route Comparison</p>
             </div>
             <div class="glass-panel px-8 py-4 rounded-2xl flex items-center gap-6 bg-white/[0.03]">
                 <div id="liveClock" class="font-mono font-bold text-2xl text-white tracking-widest">00:00:00</div>
@@ -63,20 +64,20 @@
                                  <option value="N">Section N</option>
                              </select>
                         </div>
-                        <button type="submit" class="btn btn-primary w-full py-5 text-xs font-black shadow-[0_10px_25px_rgba(0,229,255,0.2)]">
-                            MAP OPTIMAL ROUTE <i class="fa-solid fa-chevron-right ml-2 text-[0.6rem]"></i>
+                        <button type="submit" id="findRouteBtn" class="btn btn-primary w-full py-5 text-xs font-black shadow-[0_10px_25px_rgba(0,229,255,0.2)]">
+                            COMPARE ROUTES <i class="fa-solid fa-code-compare ml-2 text-[0.6rem]"></i>
                         </button>
                     </form>
                 </div>
 
-                <!-- Guidance Analytics -->
-                <div id="distanceDisplay" class="glass-panel p-6 md:p-8 bg-white/[0.01] transition-all">
+                <!-- Route Results Panel — scrollable to fit 3 cards -->
+                <div id="distanceDisplay" class="glass-panel p-6 md:p-8 bg-white/[0.01] transition-all overflow-y-auto max-h-[680px]">
                     <div class="space-y-4">
                         <div>
                             <div class="text-slate-400 text-[0.6rem] uppercase font-black tracking-widest mb-2">Guidance Status</div>
-                            <div class="text-white text-lg font-black tracking-tight">Loading...</div>
+                            <div class="text-white text-lg font-black tracking-tight">Ready</div>
                         </div>
-                        <p class="text-[0.75rem] text-slate-400 leading-relaxed">Choose your gate and seating section to calculate the best route.</p>
+                        <p class="text-[0.75rem] text-slate-400 leading-relaxed">Choose your gate and seating section to compare route options.</p>
                     </div>
                 </div>
             </div>
@@ -99,3 +100,4 @@
     <script type="module" src="../js/main.js"></script>
 </body>
 </html>
+

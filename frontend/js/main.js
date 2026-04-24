@@ -4,6 +4,7 @@ import { startCanvasAnimation, updateHeatmapData } from './heatmap.js';
 import { initDashboard, updateDashboard } from './dashboard.js';
 import { initFoodMenu, updateCartDrawer } from './food.js';
 import { initNavigation } from './navigation.js';
+import { initLiveScore } from './liveScore.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     // 1. Initial State
@@ -24,6 +25,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else if (path.includes('navigation')) {
         startCanvasAnimation('findSeatCanvas', 'find-seat', initialData);
         initNavigation();
+    } else if (path === '/' || path.includes('index.html')) {
+        initLiveScore();
     }
 
     // 3. Polling for Live Telemetry

@@ -1,5 +1,5 @@
 const { analyzeCrowdData } = require('../services/aiService');
-const { findOptimalRoute } = require('../services/routingService');
+const { findOptimalRoute, findMultipleRoutes } = require('../services/routingService');
 const { saveCheckData, getHistoryData } = require('../services/dbService');
 const { z } = require('zod');
 
@@ -101,6 +101,37 @@ exports.calculateRoute = async (req, res) => {
         res.json(result);
     } catch (error) {
         res.status(500).json({ error: "Route calculation failed" });
+    }
+};
+
+exports.calculateMultiRoutes = async (req, res) => {
+    try {
+        const start = typeof req.query.start === 'string' ? req.query.start.trim() : '';
+        const end = typeof req.query.end === 'string' ? req.query.end.trim() : '';
+
+        if (!start || !end) {
+            return res.status(400).json({ error: "Query params 'start' and 'end' are required." });
+        }
+
+        if (!VALID_GATES.includes(start)) {
+            return res.status(400).json({ error: `Invalid start gate. Allowed values: ${VALID_GATES.join(', ')}` });
+        }
+
+        if (!VALID_SECTIONS.includes(end)) {
+            return res.status(400).json({ error: `Invalid destination section. Allowed values: ${VALID_SECTIONS.join(', ')}` });
+        }
+
+        const result = findMultipleRoutes(start, end, currentTelemetry);
+
+        // Basic sanity check — all routes must have a valid path
+        if (!result || !Array.isArray(result.routes) || result.routes.length === 0) {
+            return res.status(400).json({ error: "Unable to calculate multi-route for the provided inputs." });
+        }
+
+        res.json(result);
+    } catch (error) {
+        console.error('Multi-route error:', error);
+        res.status(500).json({ error: "Multi-route calculation failed" });
     }
 };
 
