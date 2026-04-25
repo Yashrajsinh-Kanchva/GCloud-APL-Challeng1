@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication | StadiumFlow</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../css/styles.css">
     <style>
         body {
+            background-color: var(--bg-dark);
             background-image: 
                 radial-gradient(circle at top right, rgba(0, 229, 255, 0.1), transparent 40%),
                 radial-gradient(circle at bottom left, rgba(157, 0, 255, 0.1), transparent 40%);
@@ -66,12 +68,12 @@
         
         document.getElementById('googleLoginBtn').addEventListener('click', async () => {
             const user = await loginWithGoogle();
-            if (user) window.location.href = '/index.html';
+            if (user) window.location.href = '/pages/home.html';
         });
 
         document.getElementById('guestBtn').addEventListener('click', () => {
             sessionStorage.setItem('sf_guest_mode', 'true');
-            window.location.href = '/index.html';
+            window.location.href = '/pages/home.html';
         });
     </script>
 </body>

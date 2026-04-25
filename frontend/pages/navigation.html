@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigation | StadiumFlow</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
     <meta name="description" content="Congestion-aware pathfinding with multi-route comparison for StadiumFlow stadium navigation.">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/heatmap.css">
 </head>
-<body class="pt-32 pb-16 min-h-screen flex flex-col">
+<body class="pt-32 pb-16 min-h-screen flex flex-col bg-[#02040a] text-white">
     <!-- Navbar Placeholder -->
     <div id="navbar"></div>
 
@@ -22,8 +23,12 @@
                 <h1 class="text-5xl md:text-6xl font-black mb-3 tracking-tighter">Spatial <span class="text-accent">Guidance</span></h1>
                 <p class="text-muted font-bold uppercase tracking-[0.3em] text-[0.7rem] opacity-80">Congestion-Aware Pathfinding &amp; Multi-Route Comparison</p>
             </div>
-            <div class="glass-panel px-8 py-4 rounded-2xl flex items-center gap-6 bg-white/[0.03]">
-                <div id="liveClock" class="font-mono font-bold text-2xl text-white tracking-widest">00:00:00</div>
+            <div class="glass-panel px-8 py-4 rounded-2xl flex items-center gap-6 bg-white/[0.03] border-accent/20">
+                <div class="flex items-center gap-3 bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
+                    <span class="w-2 h-2 bg-accent rounded-full animate-pulse shadow-[0_0_12px_#00e5ff]"></span>
+                    <span class="text-[0.6rem] font-black text-accent uppercase tracking-[0.2em]">Live Wayfinding</span>
+                </div>
+                <div id="liveClock" class="font-mono font-bold text-2xl text-white tracking-widest text-shadow-glow">00:00:00</div>
             </div>
         </header>
 
@@ -38,30 +43,30 @@
                     <form id="seatForm" class="space-y-8">
                         <div>
                             <label class="block text-[0.6rem] font-black text-muted uppercase tracking-[0.25em] mb-4">Starting Entry Node</label>
-                            <select id="gateSelect" class="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-sm text-white focus:outline-none focus:border-accent transition-all appearance-none cursor-pointer outline-none">
-                                <option value="Gate 1">Gate 1 (North)</option>
-                                <option value="Gate 2">Gate 2 (East)</option>
-                                <option value="Gate 3">Gate 3 (South)</option>
-                                <option value="Gate 4">Gate 4 (West)</option>
+                            <select id="gateSelect" class="form-input cursor-pointer appearance-none">
+                                <option value="Gate 1" class="bg-[#02040a]">Gate 1 (North)</option>
+                                <option value="Gate 2" class="bg-[#02040a]">Gate 2 (East)</option>
+                                <option value="Gate 3" class="bg-[#02040a]">Gate 3 (South)</option>
+                                <option value="Gate 4" class="bg-[#02040a]">Gate 4 (West)</option>
                             </select>
                         </div>
                         <div>
                              <label class="block text-[0.6rem] font-black text-muted uppercase tracking-[0.25em] mb-4">Target Seating Zone</label>
-                             <select id="sectionSelect" class="w-full bg-black/40 border border-white/10 rounded-xl px-5 py-4 text-sm text-white focus:outline-none focus:border-accent transition-all appearance-none cursor-pointer outline-none">
-                                 <option value="A">Section A</option>
-                                 <option value="B">Section B</option>
-                                 <option value="C">Section C</option>
-                                 <option value="D">Section D</option>
-                                 <option value="E">Section E</option>
-                                 <option value="F">Section F</option>
-                                 <option value="G">Section G</option>
-                                 <option value="H">Section H</option>
-                                 <option value="I">Section I</option>
-                                 <option value="J">Section J</option>
-                                 <option value="K">Section K</option>
-                                 <option value="L">Section L</option>
-                                 <option value="M">Section M</option>
-                                 <option value="N">Section N</option>
+                             <select id="sectionSelect" class="form-input cursor-pointer appearance-none">
+                                 <option value="A" class="bg-[#02040a]">Section A</option>
+                                 <option value="B" class="bg-[#02040a]">Section B</option>
+                                 <option value="C" class="bg-[#02040a]">Section C</option>
+                                 <option value="D" class="bg-[#02040a]">Section D</option>
+                                 <option value="E" class="bg-[#02040a]">Section E</option>
+                                 <option value="F" class="bg-[#02040a]">Section F</option>
+                                 <option value="G" class="bg-[#02040a]">Section G</option>
+                                 <option value="H" class="bg-[#02040a]">Section H</option>
+                                 <option value="I" class="bg-[#02040a]">Section I</option>
+                                 <option value="J" class="bg-[#02040a]">Section J</option>
+                                 <option value="K" class="bg-[#02040a]">Section K</option>
+                                 <option value="L" class="bg-[#02040a]">Section L</option>
+                                 <option value="M" class="bg-[#02040a]">Section M</option>
+                                 <option value="N" class="bg-[#02040a]">Section N</option>
                              </select>
                         </div>
                         <button type="submit" id="findRouteBtn" class="btn btn-primary w-full py-5 text-xs font-black shadow-[0_10px_25px_rgba(0,229,255,0.2)]">

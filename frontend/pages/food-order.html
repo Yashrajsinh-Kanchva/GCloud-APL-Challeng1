@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Order | StadiumFlow</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="pt-32 pb-16">
+<body class="pt-32 pb-16 bg-[#02040a] text-white">
     <!-- Navbar Placeholder -->
     <div id="navbar"></div>
 
@@ -30,17 +31,23 @@
             </button>
         </header>
 
-        <!-- Category Filters -->
-        <div class="flex flex-wrap gap-4 mb-16">
-            <button data-category="all" class="cat-filter active px-8 py-3.5 rounded-xl border border-accent/40 bg-accent/10 text-accent text-[0.7rem] font-black uppercase tracking-[0.2em] transition-all">All Items</button>
-            <button data-category="Mains" class="cat-filter px-8 py-3.5 rounded-xl border border-white/5 bg-white/[0.02] text-muted text-[0.7rem] font-black uppercase tracking-[0.2em] hover:text-white hover:border-white/20 transition-all">Mains</button>
-            <button data-category="Snacks" class="cat-filter px-8 py-3.5 rounded-xl border border-white/5 bg-white/[0.02] text-muted text-[0.7rem] font-black uppercase tracking-[0.2em] hover:text-white hover:border-white/20 transition-all">Snacks</button>
-            <button data-category="Drinks" class="cat-filter px-8 py-3.5 rounded-xl border border-white/5 bg-white/[0.02] text-muted text-[0.7rem] font-black uppercase tracking-[0.2em] hover:text-white hover:border-white/20 transition-all">Drinks</button>
+        <!-- Realistic Indian Shop Cards -->
+        <div id="shopCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 animate-fade-in">
+            <!-- Shop Cards will be injected dynamically by food.js -->
         </div>
 
-        <!-- Product Grid -->
-        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Items dynamically injected by food.js -->
+        <!-- Items View Container (Initially Hidden) -->
+        <div id="itemsViewContainer" class="hidden animate-fade-in">
+            <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/5">
+                <button id="backToShopsBtn" class="flex items-center gap-3 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-xl text-white font-bold transition-all hover:-translate-x-1">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Shops
+                </button>
+                <h2 id="currentShopTitle" class="text-2xl md:text-3xl font-black tracking-tighter text-white"></h2>
+            </div>
+            <!-- Product Grid -->
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Items dynamically injected by food.js -->
+            </div>
         </div>
     </main>
 
@@ -66,9 +73,16 @@
                 </button>
                 <div class="flex items-center justify-center gap-3">
                     <span class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></span>
-                    <p class="text-[0.6rem] text-center text-muted font-black uppercase tracking-[0.25em]">Pickup at Section B - Node 4</p>
+                    <p class="text-[0.6rem] text-center text-muted font-black uppercase tracking-[0.25em]">Dynamic Multi-Shop Pickup</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal Overlay -->
+    <div id="paymentModalOverlay" class="fixed inset-0 bg-black/90 backdrop-blur-xl z-[3000] hidden flex-col items-center justify-center transition-all duration-300">
+        <div id="paymentModal" class="bg-[#02040a] border border-white/10 rounded-[2rem] max-w-md w-full mx-4 shadow-[0_0_150px_rgba(0,229,255,0.05)] relative overflow-hidden animate-slide-in">
+            <!-- Modal Body injected via JS -->
         </div>
     </div>
 

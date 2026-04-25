@@ -3,136 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StadiumFlow | Smart Crowd Intelligence</title>
-    <meta name="description" content="StadiumFlow provides smart crowd intelligence for a seamless stadium experience. Monitor traffic, find seats, and order food easily.">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Redirecting...</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <script>
+        // Force the app to ALWAYS go to role-select.html on start
+        window.location.href = '/pages/role-select.html';
+    </script>
 </head>
-<body class="pt-32 min-h-screen">
-    <!-- Navbar Placeholder -->
-    <div id="navbar"></div>
-
-    <!-- Hero Section -->
-    <main class="sf-container">
-        <header class="relative flex flex-col items-center justify-center py-24 text-center animate-fade-in">
-            <!-- Decorative Blobs -->
-            <div class="absolute -top-40 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -z-10"></div>
-            <div class="absolute bottom-0 -left-60 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[150px] -z-10"></div>
-            
-            <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.03] border border-accent/20 mb-10 shadow-lg">
-                <span class="w-2 h-2 bg-accent rounded-full animate-pulse shadow-[0_0_10px_var(--accent)]"></span>
-                <span class="text-[0.65rem] font-black uppercase tracking-[0.3em] text-accent">Intelligent Venue Platform</span>
-            </div>
-
-            <h1 class="text-5xl md:text-8xl font-black mb-10 max-w-5xl tracking-tighter leading-[0.95] text-white">
-                The Stadium is <span class="bg-gradient-to-r from-accent to-blue-500 bg-clip-text text">Digital Now.</span>
-            </h1>
-            <p class="text-lg md:text-xl text-secondary mb-14 max-w-2xl font-medium leading-relaxed opacity-90">
-                Experience smart crowd telemetry, seat-aware navigation, and high-speed concession ordering in one unified, high-performance platform.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-6 mb-16">
-                <a href="pages/dashboard.html" class="btn btn-primary px-12 py-5 text-sm shadow-[0_15px_35px_rgba(0,229,255,0.2)]">
-                    OPERATIONAL DASHBOARD <i class="fa-solid fa-arrow-right ml-3 text-xs"></i>
-                </a>
-                <a href="pages/heatmap.html" class="btn btn-secondary px-12 py-5 text-sm">
-                    LIVE THERMAL MAP
-                </a>
-            </div>
-
-            <!-- New Live Match Integration -->
-            <div id="liveMatchContainer" class="animate-fade-in w-full max-w-sm glass-panel p-5 shadow-lg border border-white/10 border-l-4 border-l-red-500 relative bg-black/40 backdrop-blur-md hidden md:block mx-auto mt-4">
-                <div class="flex items-center justify-between mb-3 border-b border-white/5 pb-2">
-                    <div class="text-[0.65rem] font-black uppercase tracking-[0.2em] text-white flex items-center gap-2">
-                        <i class="fa-solid fa-satellite-dish text-accent"></i> API Stream
-                    </div>
-                    <div id="liveStatusBadge" class="text-[0.55rem] font-bold tracking-widest uppercase px-2 py-1 flex items-center gap-1.5 rounded-full badge-danger text-red-500 border border-red-500/20 bg-red-500/10">
-                        <span class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></span> LIVE
-                    </div>
-                </div>
-                
-                <div id="liveMatchContent" class="text-left relative min-h-[70px]">
-                    <div class="text-xs text-secondary mt-2"><i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Connecting to CricAPI...</div>
-                </div>
-
-                <div id="lastUpdatedLabel" class="absolute bottom-2 right-3 text-[0.5rem] uppercase tracking-widest text-secondary mt-2">Connecting...</div>
-            </div>
-            <!-- End Live Match Integration -->
-        </header>
-
-        <!-- Features Grid -->
-        <section id="features" class="section-spacing py-20">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <a href="pages/heatmap.html" aria-label="View live heatmaps" class="glass-panel p-10 group outline-none">
-                    <div class="w-16 h-16 bg-accent/5 rounded-[20px] flex items-center justify-center text-3xl mb-8 border border-accent/10 group-hover:bg-accent/10 transition-colors" aria-hidden="true">🔥</div>
-                    <h3 class="text-2xl font-bold mb-4 tracking-tight group-hover:text-accent transition-colors">Spatial Heatmaps</h3>
-                    <p class="text-secondary leading-relaxed font-medium text-sm">Coordinate gate inflow and section density with precise real-time thermal distribution mapping.</p>
-                    <div class="mt-8 flex items-center text-xs font-bold text-accent tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                        Launch Engine <i class="fa-solid fa-chevron-right ml-2"></i>
-                    </div>
-                </a>
-                
-                <a href="pages/navigation.html" aria-label="Use pathfinding engine" class="glass-panel p-10 group outline-none">
-                    <div class="w-16 h-16 bg-indigo-500/5 rounded-[20px] flex items-center justify-center text-3xl mb-8 border border-white/10 group-hover:bg-indigo-500/20 transition-colors" aria-hidden="true">🗺️</div>
-                    <h3 class="text-2xl font-bold mb-4 tracking-tight group-hover:text-indigo-400 transition-colors">Pathfinding AI</h3>
-                    <p class="text-secondary leading-relaxed font-medium text-sm">Smart route calculations that bypass bottlenecked zones for the fastest stadium entry or exit.</p>
-                    <div class="mt-8 flex items-center text-xs font-bold text-indigo-400 tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                        Map Route <i class="fa-solid fa-chevron-right ml-2"></i>
-                    </div>
-                </a>
-
-                <a href="pages/food-order.html" aria-label="Order food" class="glass-panel p-10 group outline-none">
-                    <div class="w-16 h-16 bg-emerald-500/5 rounded-[20px] flex items-center justify-center text-3xl mb-8 border border-white/10 group-hover:bg-emerald-500/20 transition-colors" aria-hidden="true">🍔</div>
-                    <h3 class="text-2xl font-bold mb-4 tracking-tight group-hover:text-emerald-400 transition-colors">Express Checkout</h3>
-                    <p class="text-secondary leading-relaxed font-medium text-sm">Queue-less refreshment ordering with seat-relative node assignment and express pickup.</p>
-                    <div class="mt-8 flex items-center text-xs font-bold text-emerald-400 tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                        Order Now <i class="fa-solid fa-chevron-right ml-2"></i>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Map CTA -->
-        <section class="py-32 border-t border-white/5">
-            <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-                <div class="flex-1">
-                    <div class="text-[0.65rem] text-accent font-black tracking-[0.4em] uppercase mb-4 opacity-80">Physical Infrastructure</div>
-                    <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter text-white leading-[1.1]">Deployed at <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Gujarat Node.</span></h2>
-                    <p class="text-lg text-secondary mb-12 font-medium leading-relaxed opacity-90">Narendra Modi Stadium serves as our primary edge computing node. Integrated navigation provides sub-meter traffic updates for your specific gate arrival.</p>
-                    <div class="grid grid-cols-2 gap-10">
-                        <div>
-                            <div class="text-white font-black text-3xl tracking-tighter mb-1 uppercase">Gate 2</div>
-                            <div class="text-accent text-[0.6rem] font-bold uppercase tracking-[0.3em]">Main Inflow Node</div>
-                        </div>
-                        <div>
-                            <div class="text-white font-black text-3xl tracking-tighter mb-1 uppercase">Zone D</div>
-                            <div class="text-indigo-400 text-[0.6rem] font-bold uppercase tracking-[0.3em]">VIP Logistics Hub</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full lg:w-1/2 aspect-video glass-panel p-2 shadow-2xl relative group overflow-hidden border-white/10">
-                     <iframe 
-                        width="100%" 
-                        height="100%" 
-                        frameborder="0" class="rounded-xl filter grayscale contrast-125 brightness-[0.6] hover:brightness-[0.8] hover:grayscale-0 transition-all duration-1000 ease-out"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14682.025372337775!2d72.59365457585449!3d23.0914104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e839556b68b37%3A0x77d616889750734c!2sNarendra%20Modi%20Stadium!5e0!3m2!1sen!2sin!4v1713432000000!5m2!1sen!2sin" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </section>
-    </main>
-
-
-    <!-- Footer Placeholder -->
-    <div id="footer"></div>
-
-    <script type="module" src="js/layout.js"></script>
-    <script type="module" src="js/main.js"></script>
+<body>
 </body>
+</html>y>
 </html>

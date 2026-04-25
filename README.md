@@ -1,188 +1,141 @@
-# StadiumFlow
+# 🏟️ StadiumFlow
 
-**AI-powered crowd-aware navigation system for managing congestion in large venues.**
+**Next-Gen AI Crowd Intelligence & Smart Venue Companion**
 
-## Overview
-Crowd congestion is a serious problem in stadiums and other large venues. Poor routing leads to bottlenecks at gates, slower movement, and a worse fan experience.
-
-StadiumFlow addresses this with two core ideas:
-- congestion-aware route planning using a graph-based routing model
-- AI-assisted crowd analysis using Google Gemini
-
-The system combines simulated crowd telemetry, route calculation, visual monitoring, and authentication into a single web application designed for a demo and hackathon setting.
-
-## Live Demo
-- https://stadiumflow.onrender.com
-
-## Features
-- **Smart route planning** using Dijkstra's algorithm with congestion-adjusted weights
-- **AI-based crowd prediction** through Google Gemini API
-- **Heatmap visualization** for sections, gates, and facilities
-- **Find My Seat navigation** with route drawing on the stadium map
-- **Dynamic routing data updates** through periodic telemetry refresh
-- **Firebase Google Authentication** with guest mode fallback
-- **Responsive UI** across dashboard, heatmap, navigation, login, and food-order pages
-
-## How It Works
-### Graph-based routing
-- The venue is modeled as a graph of gates and seating sections.
-- Each edge has a base distance cost.
-- Current congestion is added as an extra weight during route calculation.
-- The backend returns the lowest-cost path for a selected gate and section.
-
-### API-driven crowd data
-- The backend generates simulated crowd telemetry for:
-  - gates
-  - sections
-  - restrooms
-  - food courts
-  - merchandise counters
-- This data is served through API endpoints and consumed by the frontend for dashboards, maps, and route decisions.
-
-### AI integration
-- The current telemetry snapshot is sent to Gemini when AI analysis is requested.
-- Gemini returns structured output for hotspot prediction, route guidance, and reasoning.
-
-## Tech Stack
-- **Frontend**
-  - HTML
-  - CSS
-  - JavaScript
-  - Tailwind CSS
-  - Bootstrap
-- **Backend**
-  - Node.js
-  - Express.js
-- **Authentication**
-  - Firebase Authentication
-- **AI**
-  - Google Gemini API
-- **Visualization**
-  - HTML5 Canvas
-  - Chart.js
-- **Validation / API utilities**
-  - Zod
-  - Axios
-  - express-rate-limit
+StadiumFlow is a high-performance venue management platform designed to solve real-world congestion problems in large stadiums. By combining **Deterministic Routing**, **Predictive AI**, and **Real-time Commerce**, StadiumFlow ensures a seamless, frictionless experience for fans and a data-driven command center for administrators.
 
 ---
 
-## 📸 Screenshots  
-<img width="1920" height="911" alt="homeGDG" src="https://github.com/user-attachments/assets/82cb7905-a002-4c84-b3d9-6d2f21023dae" />
+## 🚀 Key Features
 
-<img width="1920" height="900" alt="dashboardGDG" src="https://github.com/user-attachments/assets/70bf7641-ef43-4adc-a91f-e80b1769f849" />
+### 🧠 1. AI-Powered Crowd Analysis
+- **Gemini 1.5 Flash Integration**: Real-time analysis of stadium telemetry to predict hotspots and optimize gate traffic.
+- **Smart Forecasting**: Predictive insights on crowd movement and bottleneck avoidance.
 
-<img width="1920" height="901" alt="dash2GDG" src="https://github.com/user-attachments/assets/4291b1d5-2c01-4a7b-adae-6f095f06070d" />
+### 🗺️ 2. Dynamic Pathfinding & Navigation
+- **Congestion-Aware Routing**: Custom Dijkstra implementation that adjusts path weights based on live crowd density.
+- **Find My Seat**: Interactive stadium map with animated polyline routing from gate to section.
+- **Multi-Route Comparison**: Compare different entry/exit points based on current traffic.
 
-<img width="1920" height="899" alt="findSeatGDG" src="https://github.com/user-attachments/assets/0ba44ef6-70ff-4eb2-8efe-ce8860109679" />
+### 🍔 3. Integrated Commerce (Food & Beverage)
+- **Multi-Vendor Marketplace**: Unified ordering from all stadium vendors.
+- **Smart Pickup Plan**: Intelligent grouping of orders with shop-wise pickup instructions.
+- **Express Checkout**: Mock payment gateway with UPI (QR) and Cash-at-Counter options.
 
+### ⚡ 4. Live Event Synchronization
+- **IPL Live Scores**: Real-time cricket score integration with resilient rate-limiting and auto-fallback.
+- **Telemetry Heartbeat**: 8-second refresh cycle for all crowd density data across gates, sections, and facilities.
 
-## Setup Instructions
-### 1. Clone the repository
-```bash
-git clone https://github.com/Yashrajsinh-Kanchva/PhysicalEventExp.git
-cd PhysicalEventExp
-```
+### 🛡️ 5. Administrative Command Center
+- **Dual Management Tiers**: 
+  - **Super Admin**: Global control over venue structure, shop approvals, and live requests.
+  - **Shop Admin**: Vendor portal for managing menu items, registration, and order status.
+- **Role-Based Access**: Dedicated flows for Audience, Admin, and Merchants.
 
-### 2. Install dependencies
-```bash
-npm install
-```
+### 🔐 6. Secure & Seamless Auth
+- **Firebase Integration**: Robust Google Authentication.
+- **Guest Access**: Instant "Guest Node" mode for quick demonstrations.
 
-### 3. Create a `.env` file
-```env
-GEMINI_API_KEY=your_key
-PORT=3000
+---
 
-FIREBASE_API_KEY=your_web_api_key
-FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-FIREBASE_PROJECT_ID=your_project_id
-FIREBASE_STORAGE_BUCKET=your_project.appspot.com
-FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-FIREBASE_APP_ID=your_app_id
-```
+## 🛠️ Technology Stack
 
-Optional for backend Firestore persistence:
-```env
-FIREBASE_SERVICE_ACCOUNT={"type":"service_account",...}
-```
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | HTML5, Vanilla JavaScript (ES6+), CSS3, Tailwind CSS |
+| **Backend** | Node.js, Express.js |
+| **AI / ML** | Google Gemini 1.5 Flash API |
+| **Database/Auth** | Firebase Authentication, Local Store Persistence |
+| **Visualization** | HTML5 Canvas, Chart.js, FontAwesome 6 |
+| **Utilities** | Zod (Validation), Axios, Express Rate Limit |
 
-### 4. Run the server
-Actual backend entry file:
+---
 
-```bash
-node backend/server.js
-```
+## 🏗️ Project Structure
 
-You can also use:
-
-```bash
-npm start
-```
-
-### 5. Open the app
-```text
-http://localhost:3000
-```
-
-## Project Structure
 ```text
 PhysicalEventExp/
 ├── frontend/
-│   ├── assets/
-│   ├── components/
-│   ├── css/
-│   ├── js/
-│   ├── pages/
-│   └── index.html
+│   ├── assets/          # Icons, Favicons, Branding
+│   ├── components/      # Dynamic Navbar, Footer
+│   ├── css/             # Global Design System (Glassmorphism)
+│   ├── js/              # Core Logic (Auth, Routing, API, UI)
+│   ├── pages/           # Application Screens (Home, Dash, Heatmap, etc.)
+│   └── index.html       # Entry Point (Redirector)
 ├── backend/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── routes/
-│   ├── services/
-│   ├── tests/
-│   ├── utils/
-│   └── server.js
-├── tests/
-│   └── basic.test.js
-├── package.json
-└── README.md
+│   ├── controllers/     # Business Logic (Crowd, AI, Scores)
+│   ├── routes/          # Express API Endpoints
+│   ├── services/        # Routing Algorithm (Dijkstra)
+│   ├── tests/           # API Test Suite
+│   └── server.js        # Entry Node Server
+├── package.json         # Dependencies & Scripts
+└── README.md            # Project Documentation
 ```
 
-Important app files:
-- `frontend/pages/` contains the main UI pages
-- `frontend/js/` contains client-side logic
-- `backend/server.js` starts the Express server
-- `backend/routes/api.js` defines API routes
-- `backend/services/routingService.js` contains Dijkstra-based routing
+---
 
-## Testing
-- Basic API testing is implemented using a lightweight Node.js script:
-  - `tests/basic.test.js`
-- Current automated checks include:
-  - server startup
-  - `/api/crowd-data`
-  - `/api/route`
-  - invalid and empty route input handling
-- Endpoint validation has been added for route queries and request bodies.
+## 📸 Interface Preview
 
-Run tests with:
+*(Screenshots represent the premium glassmorphic UI)*
+
+| **Home Dashboard** | **AI Analysis** |
+| :---: | :---: |
+| ![Home](https://github.com/user-attachments/assets/82cb7905-a002-4c84-b3d9-6d2f21023dae) | ![AI](https://github.com/user-attachments/assets/70bf7641-ef43-4adc-a91f-e80b1769f849) |
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1. Prerequisites
+- Node.js (v16+)
+- Google Gemini API Key
+- Firebase Project Config
+
+### 2. Installation
+```bash
+git clone https://github.com/Yashrajsinh-Kanchva/PhysicalEventExp.git
+cd PhysicalEventExp
+npm install
+```
+
+### 3. Configuration (`.env`)
+Create a `.env` file in the root directory:
+```env
+GEMINI_API_KEY=your_gemini_key
+PORT=3000
+
+FIREBASE_API_KEY=...
+FIREBASE_AUTH_DOMAIN=...
+FIREBASE_PROJECT_ID=...
+# ... other firebase config keys
+```
+
+### 4. Running Locally
+```bash
+npm start
+```
+Access at: `http://localhost:3000`
+
+---
+
+## 🧪 Testing
+The project includes a lightweight API test suite to verify endpoint stability:
 ```bash
 npm test
 ```
+**Tests Covered**:
+- ✅ Server Startup & Port Binding
+- ✅ Crowd Data Simulation Consistency
+- ✅ Routing Algorithm Accuracy
+- ✅ AI Payload Validation
 
-## Assumptions
-- Crowd data is simulated rather than connected to live sensors.
-- The project is designed for a demo and hackathon environment.
-- Routing currently works at gate-to-section level, not exact seat coordinates.
-- Firebase and Gemini features depend on valid environment configuration.
+---
 
-## Why This Project Stands Out
-- **Real-world problem solving**: addresses crowd flow and navigation inside large venues
-- **AI integration**: uses Gemini to add predictive insight on top of deterministic routing
-- **Scalable idea**: the same approach can extend to stadiums, airports, campuses, and event spaces
-- **Clear product experience**: combines routing, monitoring, authentication, and visualization in one interface
-- **Clean UI and UX**: responsive multi-page frontend designed for demo clarity
+## ℹ️ Demo Mode Note
+StadiumFlow is designed for **Demo and Hackathon** settings.
+- **Authentication**: Advanced validation (username/password/security) is bypassed for demo convenience via Role Selection.
+- **Telemetry**: Crowd data is simulated using deterministic randomization for repeatable testing.
 
-## Author
-**Yashrajsinh Kanchva**
+---
+
+**Developed with ❤️ by Yashrajsinh Kanchva**
