@@ -70,23 +70,6 @@ Attending events in large stadiums often comes with frustrating challenges that 
 
 ---
 
-## 📸 8. Screenshots
-> *Experience the premium, glassmorphic UI design of Stadium Flow.*
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/82cb7905-a002-4c84-b3d9-6d2f21023dae" width="45%" alt="Home Page" />
-  <img src="https://github.com/user-attachments/assets/70bf7641-ef43-4adc-a91f-e80b1769f849" width="45%" alt="Dashboard" />
-</p>
-
-*   **Home Page** - The central hub for all fan activities.
-*   **Admin Dashboard** - Real-time monitoring and management.
-*   **Heatmap** - Visualizing stadium density.
-*   **Food Order** - Seamless shop-based ordering interface.
-*   **Admin Panel** - Shop and item approval workflows.
-*   **Shop Admin Panel** - Vendor-specific management portal.
-
----
-
 ## 🎮 6. How to Run
 
 Follow these steps to get Stadium Flow running locally:
@@ -120,6 +103,23 @@ Follow these steps to get Stadium Flow running locally:
 > [!IMPORTANT]
 > **This project currently runs in Demo Mode.**
 > Authentication and advanced validations (username, password, role-based access) are pre-configured for demonstration purposes. Full production-grade security can be toggled as needed.
+
+---
+
+## 📸 8. Screenshots
+> *Experience the premium, glassmorphic UI design of Stadium Flow.*
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/82cb7905-a002-4c84-b3d9-6d2f21023dae" width="45%" alt="Home Page" />
+  <img src="https://github.com/user-attachments/assets/70bf7641-ef43-4adc-a91f-e80b1769f849" width="45%" alt="Dashboard" />
+</p>
+
+*   **Home Page** - The central hub for all fan activities.
+*   **Admin Dashboard** - Real-time monitoring and management.
+*   **Heatmap** - Visualizing stadium density.
+*   **Food Order** - Seamless shop-based ordering interface.
+*   **Admin Panel** - Shop and item approval workflows.
+*   **Shop Admin Panel** - Vendor-specific management portal.
 
 ---
 
